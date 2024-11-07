@@ -6,15 +6,16 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Documentación para el Testeo del Proyecto
+
+Este proyecto utiliza Jasmine y Karma para realizar pruebas unitarias de los componentes de Angular. Las pruebas se encuentran en archivos con el sufijo `.spec.ts`.
+
+## Ejecutar las Pruebas
+Para ejecutar todas las pruebas unitarias, usa el siguiente comando: 
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 

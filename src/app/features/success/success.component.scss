@@ -1,0 +1,47 @@
+
+@keyframes color-change {
+  0% {
+    color: #0a27ff;
+  }
+  25% {
+    color: #dc6c17;
+  }
+  50% {
+    color: #119429;
+  }
+  75% {
+    color: #85ceff;
+  }
+  100% {
+    color: #a2182f;
+  }
+}
+
+$img-max-width: 250px; // Tamaño de imagen
+
+.success-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  background-color: #e9d7c8;
+
+  h1 {
+    color: rgb(34, 64, 174);
+    font-size: 1rem;
+  }
+
+  img {
+    max-width: $img-max-width;
+    width: 100%;
+    height: auto;
+  }
+
+  h1 {
+    animation:color-change 5s infinite;
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+}

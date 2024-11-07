@@ -1,0 +1,41 @@
+<div class="login">
+  <h1 class="login__title">Login</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login__form">
+    <div class="login__form-group">
+      <input id="email" type="email" formControlName="email" class="login__input" placeholder="Introduce tu email"
+        [ngClass]="{
+          'login__input--invalid':
+            email!.invalid && (email!.dirty || email!.touched)
+        }" />
+      <div *ngIf="email!.invalid && (email!.dirty || email!.touched)" class="login__error">
+        Por favor, introduce un email válido.
+      </div>
+    </div>
+    <div class="login__form-group">
+      <input id="password" type="password" formControlName="password" class="login__input"
+        placeholder="Introduce tu contraseña" [ngClass]="{
+          'login__input--invalid':
+            password!.invalid && (password!.dirty || password!.touched)
+        }" />
+      <div *ngIf="password!.invalid && (password!.dirty || password!.touched)" class="login__error">
+        La contraseña debe tener al menos 6 caracteres.
+      </div>
+    </div>
+    <button type="submit" class="login__button" [ngClass]="{
+        'login__button--primary': loginForm.valid,
+        'login__button--secondary': !loginForm.valid
+      }" [disabled]="!loginForm.valid">
+      Iniciar Sesión
+    </button>
+
+    <!-- <button class="login__button login__button--google btn-block btn-outline" (click)="loginGoogle()">
+      <img src="https://img.icons8.com/color/22/000000/google-logo.png"> Sing in Google
+    </button> -->
+
+    <div class="login__info">
+      <div class="login__info-item">Email: test&#64;example.com</div>
+      <div class="login__info-item">Password: 123456</div>
+    </div>
+  </form>
+</div>
+<app-modal #modal [message]="'Autenticación fallida, revise sus credenciales'"></app-modal>
