@@ -1,12 +1,16 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject, linkedSignal } from '@angular/core';
+import { LayoutComponent } from './layout/layout/layout.component';
+import { UserStore } from './core/state/stores/user.store';
+import { LoginComponent } from './features/login/login.component';
+
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+    selector: 'app-root',
+    imports: [LayoutComponent,LoginComponent],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss'
 })
 export class AppComponent {
+  private readonly userStore = inject(UserStore);
+  isLoggedIn = linkedSignal(this.userStore.isLoggedIn);
 }

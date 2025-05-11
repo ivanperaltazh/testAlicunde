@@ -1,0 +1,35 @@
+:host {
+  display: block;
+}
+
+.spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(71, 71, 71, 0.5); /* Fondo oscuro semi-transparente */
+  display: flex; /* Para centrar el spinner fácilmente */
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; /* Un poco menos que el spinner si el spinner tuviera su propio z-index, o igual si es hijo directo */
+}
+
+.custom-spinner-inner {
+  /* El spinner en sí mismo ya no necesita position:fixed,
+     ya que su contenedor .spinner-overlay se encarga de eso.
+     Aquí podrías ajustar el tamaño o color del spinner si es necesario. */
+  z-index: 10000; /* Para asegurar que esté sobre el fondo del overlay */
+}
+
+.body{
+  height: 85vh;
+}
+
+app-header{
+  height: 3vh;
+}
+
+app-footer{
+  height: 3vh;
+}

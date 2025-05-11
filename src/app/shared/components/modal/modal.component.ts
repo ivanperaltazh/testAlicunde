@@ -7,12 +7,11 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-modal',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './modal.component.html',
-  styleUrl: './modal.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-modal',
+    imports: [CommonModule],
+    templateUrl: './modal.component.html',
+    styleUrl: './modal.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ModalComponent {
   @Input() message: string = '';

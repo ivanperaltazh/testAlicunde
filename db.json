@@ -1,0 +1,51 @@
+{
+  "tasks": [
+    {
+      "id": "2",
+      "title": "Estudiar Angular",
+      "completed": true
+    },
+    {
+      "id": "3cc5",
+      "title": "trabajar",
+      "completed": false
+    },
+    {
+      "id": "c8bc",
+      "title": "programs",
+      "completed": true
+    },
+    {
+      "id": "97a5",
+      "title": "varios",
+      "completed": false
+    },
+    {
+      "id": "907e",
+      "title": "comer",
+      "completed": false
+    },
+    {
+      "id": "52ce",
+      "title": "compras",
+      "completed": false
+    },
+    {
+      "id": "b24b",
+      "title": "visitar",
+      "completed": false
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Juan Perez",
+      "email": "juan@example.com"
+    },
+    {
+      "id": "2",
+      "name": "Ana Lopez",
+      "email": "ana@example.com"
+    }
+  ]
+}

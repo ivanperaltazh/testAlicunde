@@ -7,20 +7,19 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth-service';
-import { ModalComponent } from '../../../shared/components/modal/modal.component';
+import { AuthService } from '../../core/services/auth-service';
+import { ModalComponent } from '../../shared/components/modal/modal.component';
 
 /**
  * Componente de login.
  * Permite a los usuarios iniciar sesión mediante un formulario.
  */
 @Component({
-  selector: 'app-login',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, ModalComponent],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-login',
+    imports: [CommonModule, ReactiveFormsModule, ModalComponent],
+    templateUrl: './login.component.html',
+    styleUrl: './login.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent {
   /** Formulario reactivo para manejar los datos de login. */
@@ -66,7 +65,7 @@ export class LoginComponent {
       const { email, password } = this.loginForm.value;
       this.authService.login({email, password}).subscribe((isAuthenticated) => {
         if (isAuthenticated) {
-          this.router.navigate(['/success']);
+          this.router.navigate(['/']);
         } else {
           this.modal.openModal();
         }

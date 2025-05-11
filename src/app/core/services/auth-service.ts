@@ -1,7 +1,9 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable, linkedSignal } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { User } from '../models/user.model';
+import { UserStore } from '../state/stores/user.store';
+
 
 /**
  * Servicio de autenticación.
@@ -12,8 +14,11 @@ import { User } from '../models/user.model';
 })
 export class AuthService {
 
+  private readonly userStore = inject(UserStore);
+  // Signals computados
+  readonly user = this.userStore.user;
   /** Indica si el usuario está autenticado. */
-  private isLoggedIn = false;
+    isLoggedIn = linkedSignal(this.userStore.isLoggedIn);
 
   /**
    * Método para autenticar al usuario.
@@ -23,7 +28,8 @@ export class AuthService {
    */
   login(user: User): Observable<boolean> {
     const isValidUser = user.email === 'test@example.com' && user.password === '123456'; // Credenciales deberian obtenerse de back
-    this.isLoggedIn = isValidUser;
+    this.userStore.setUser(user);
+    this.isLoggedIn.set(isValidUser);
     return of(isValidUser).pipe(delay(500));
   }
 
@@ -32,6 +38,13 @@ export class AuthService {
    * @returns boolean - `true` si el usuario está autenticado, `false` en caso contrario.
    */
   isAuthenticated(): boolean {
-    return this.isLoggedIn;
+    return this.isLoggedIn();
+  }
+
+
+  logout() {
+    this.userStore.clearUser();
   }
 }
+
+

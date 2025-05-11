@@ -1,0 +1,117 @@
+
+.navbar {
+  background-color: #f8f9fa;
+
+  .navbar-container {
+     display: flex;
+     justify-content: space-between;
+     align-items:flex-start;
+  }
+
+  .navbar-brand {
+    text-decoration: none;
+  }
+
+  .navbar-toggle {
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    display: flex; /* Usa flexbox para alinear las líneas*/
+    flex-direction: column; /*Apila las líneas verticalmente */
+    justify-content: space-around; /*Distribuye el espacio entre las líneas */
+    width: 30px; /* Ancho del botón */
+    height: 24px; /* Alto del botón */
+    margin: 0.5rem;
+
+  span {
+    display: block;
+     width: 100%; /*Ancho completo del botón */
+    height: 3px;
+    background-color: #333; /* Color de las líneas */
+    margin: 3px 0;
+    transition: all 0.3s ease-in-out;
+  }
+  }
+
+  .navbar-menu {
+    display: none;
+
+    &.show {
+      display: block;
+      width: 100%;
+    }
+
+    .navbar-nav {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      .nav-item {
+        cursor: pointer;
+        .nav-link {
+          display: block;
+          padding: 0.5rem 1rem;
+          color: #333;
+          text-decoration: none;
+          transition: background-color 0.3s ease-in-out;
+
+
+          &:hover {
+            background-color: #e9ecef;
+          }
+
+          &.active {
+            background-color: #e9ecef;
+          }
+        }
+      }
+    }
+  }
+
+  &.expanded {
+    navbar-toggle {
+      span:nth-child(1) {
+        transform: rotate(45deg) translate(4px, 5px);
+      }
+
+      span:nth-child(2) {
+        opacity: 0;
+      }
+
+      span:nth-child(3) {
+        transform: rotate(-45deg) translate(4px, -5px);
+      }
+    }
+  }
+  }
+
+
+@media (min-width: 768px) {
+  .navbar {
+    .navbar-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .navbar-menu {
+      display: block;
+      width: auto;
+
+      .navbar-nav {
+        flex-direction: row;
+
+        .nav-item {
+          margin-left: 1rem;
+        }
+      }
+    }
+
+    .navbar-toggle {
+      display: none;
+    }
+  }
+}

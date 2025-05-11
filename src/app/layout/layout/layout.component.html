@@ -1,0 +1,13 @@
+<div>
+  <app-header></app-header>
+  <div class="body">
+   @if(loading$ | async){
+    <div class="spinner-overlay">
+      <p-progressSpinner styleClass="custom-spinner-inner"></p-progressSpinner>
+    </div>}
+   <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+  </div>
+  <app-footer></app-footer>
+</div>
